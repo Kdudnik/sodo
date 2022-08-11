@@ -1,0 +1,18 @@
+:root {
+    /* Colors */
+    --primary-color: #242464;
+    --secondary-color: #5555ff;
+    --theme-orange: #fcaf3b;
+
+    --theme-black: #171740;
+    --theme-gray: #5d5dc5;
+    --theme-gray-dark: #242464;
+    --theme-gray-light: #e0e0ff;
+    --theme-gray-lightest: #fafaff;
+    --theme-white: #ffffff;
+
+    --container-width: 1200px;
+    --section-padding: 48px;
+
+    --transition-duration: .3s;
+  }
