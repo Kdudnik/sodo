@@ -11,7 +11,7 @@
 </head>
 <body>
     <header id="navbarSticky">
-        <div class="container" id="test">
+        <div class="container">
             <nav class="navigation">
                 <a href="#"class="logo">
                     <img src="./images/logo.png" alt="Logo">
@@ -19,7 +19,15 @@
                 </a>
                 <ul class="nav-list">
                     <li class="nav-list-el"><a href="#">About us</a></li>
-                    <li class="nav-list-el"><a href="#">Download</a></li>
+                    <li class="nav-list-el drop--down-trigger">
+                        <a href="#">Download</a>
+                        <ul class="drop--down">
+                            <li><a href="#">Product</a></li>
+                            <li><a href="#">Product</a></li>
+                            <li><a href="#">Product</a></li>
+                            <li><a href="#">Product</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-list-el"><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -39,7 +47,7 @@
                 </svg>
             </div>
         </div>
-        <div class="is-hidden" id="dropDown">
+        <div class="is-hidden" id="navbarDrop">
             <ul class="nav-list">
                 <li class="nav-list-el"><a href="#">About us</a></li>
                 <li class="nav-list-el"><a href="#">Download</a></li>
@@ -48,7 +56,7 @@
         </div>
     </header>
     <div class="container">
-        <div class="hero" id="hero">
+        <div class="hero" id="hero" data-anchor="hero">
             <div class="hero-text">
                 <h1 class="hero-title">Lorem ipsum dolor sit amet.</h1>
                 <p class="hero-subtitle">
@@ -85,7 +93,7 @@
             </div>
         </section>
 
-        <div class="cards" id="cards">
+        <div class="cards" id="cards" data-anchor="cards">
             <div class="card-block">
                 <div class="card-img-wrapper">
                     <img class="card-img" src="./images/main-img.png" alt="An image">
@@ -133,7 +141,7 @@
             </div>
         </div>
 
-        <div class="pricing" id="pricing">
+        <div class="pricing" id="pricing" data-anchor="pricing">
             <div class="pricing-block-wrapper">
                 <div class="pricing-block">
                     <div class="pricing-title">Free</div>
@@ -219,14 +227,14 @@
             </div>
         </div>
 
-        <section class="quote" id="quote">
+        <section class="quote" id="quote" data-anchor="quote">
             <h2 class="quote-title">“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</h2>
             <img class="quote-img" src="./images/quote-avatar.png" alt="avatar">
             <h6>Jennifer Rowlands</h6>
             <p class="quote-subtitle">Chief Design Office, uxtoast</p>
         </section>
 
-        <div class="info" id="info">
+        <div class="info" id="info" data-anchor="info">
             <div class="info-block">
                 <div class="info-text">
                     <h4>
@@ -274,7 +282,7 @@
             </div>
         </div>
 
-        <section class="idea" id="idea">
+        <section class="idea" id="idea" data-anchor="idea">
             <div class="idea-wrapper">
                 <img src="./images/ideas.png" alt="Idea lamp" class="ideas-logo">
                 <div class="idea-text">
@@ -321,7 +329,7 @@
             </div>
         </section>
 
-        <div class="contact" id="contact">
+        <div class="contact" id="contact" data-anchor="contact">
                 <h3 class="contact-title">Contact us</h3>
                 <form action="" class="contact-form">
                     <div class="input-wrapper">
@@ -405,13 +413,13 @@
     </footer>
 
     <div class="anchor-wrapper">
-        <a href="#hero" class="anchor anchor--active"></a>
-        <a href="#cards" class="anchor"></a>
-        <a href="#pricing" class="anchor"></a>
-        <a href="#quote" class="anchor"></a>
-        <a href="#info" class="anchor"></a>
-        <a href="#idea" class="anchor"></a>
-        <a href="#contact" class="anchor"></a>
+        <a href="#" class="anchor anchor--active" data-scroll-to="hero"></a>
+        <a href="#" class="anchor" data-scroll-to="cards"></a>
+        <a href="#" class="anchor" data-scroll-to="pricing"></a>
+        <a href="#" class="anchor" data-scroll-to="quote"></a>
+        <a href="#" class="anchor" data-scroll-to="info"></a>
+        <a href="#" class="anchor" data-scroll-to="idea"></a>
+        <a href="#" class="anchor" data-scroll-to="contact"></a>
     </div>
 
     <div class="modal is-hidden" id="modalLogin">

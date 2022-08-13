@@ -95,7 +95,7 @@ header {
   transition: var(--transition-duration);
 }
 
-.nav-list-el:hover a {
+.nav-list-el:hover > a {
   color: var(--theme-orange);
 }
 
@@ -110,7 +110,42 @@ header {
 }
 
 .logo:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.nav-list-el {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.drop--down {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    top: 20px;
+    background-color: var(--theme-white);
+    box-shadow: 0px 7px 4px rgb(9 8 66 / 8%), 0px 4px 24px rgb(9 8 66 / 4%);
+    width: 100%;
+    animation: dropDown .2s;
+    transform: translateY(0);
+    transform-origin: top center;
+    border-radius:  0 0 16px 16px;
+}
+
+.drop--down a {
+    transition: var(--transition-duration);
+}
+
+.drop--down a:hover {
+    color: var(--theme-orange);
+}
+
+.drop--down-trigger:hover .drop--down {
+    display: flex;
 }
 
 .join {
@@ -131,16 +166,6 @@ header {
 
 .join-text:hover {
   color: var(--theme-orange);
-}
-
-.hero,
-.cards,
-.pricing,
-.quote,
-.info,
-.idea,
-.contact {
-    scroll-margin-top: 100px;
 }
 
 .hero {
@@ -752,7 +777,7 @@ footer {
 .anchor--active {
     background-color: var(--secondary-color);
     border-radius: 100%;
-    transition: .2s;
+    transition: .4s;
 }
 
 .anchor::before {

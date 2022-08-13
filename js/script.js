@@ -49,81 +49,52 @@ toRegistration.addEventListener('click', () => {
 })
 
 // Mobile navbar
-const dropDown = document.querySelector('#dropDown')
+
+const navbarDrop = document.querySelector('#navbarDrop')
 const menuOpener = document.querySelector('#menuOpener')
 const menuCloser = document.querySelector('#menuCloser')
 
 menuOpener.addEventListener('click', () => {
     menuOpener.classList.add('is-hidden')
     menuCloser.classList.remove('is-hidden')
-    dropDown.classList.remove('is-hidden')
+    navbarDrop.classList.remove('is-hidden')
     navbar.classList.add('js-sticky')
-    dropDown.classList.add('drop')
+    navbarDrop.classList.add('drop')
 })
 
 menuCloser.addEventListener('click', () => {
     menuCloser.classList.add('is-hidden')
     menuOpener.classList.remove('is-hidden')
-    dropDown.classList.add('is-hidden')
+    navbarDrop.classList.add('is-hidden')
     navbar.classList.remove('js-sticky')
-    dropDown.classList.remove('drop')
+    navbarDrop.classList.remove('drop')
 })
 
 
 // Anchor
 
-let currentActive = document.getElementsByClassName('anchor--active')
-console.log(currentActive)
-const anchor = document.getElementsByClassName('anchor-wrapper')
+const anchor = document.querySelector('.anchor-wrapper')
+let activeChildIndex = 0
+let currentActive = anchor.children[activeChildIndex]
+const anchorSections = document.querySelectorAll('[data-anchor]')
 
-anchor[0].addEventListener('click', (event) => {
-    let target = event.target
-    if(target.tagName == 'DIV') return;
-    currentActive.classList.remove('anchor--active')
-    target.classList.add('anchor--active')
-    currentActive = target
+anchor.addEventListener('click', (event) => {
+    event.preventDefault()
+
+    if(event.target.tagName !== 'A') return;
+    const neededSectionTop = document.querySelector(`[data-anchor="${event.target.dataset.scrollTo}"]`).offsetTop
+    window.scrollTo(0, neededSectionTop)
 })
 
-// window.addEventListener('scroll', () => {
-//     if(window.pageYOffset >= contact.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorContact.classList.add('anchor--active')
-//         currentActive = anchorContact
-//     }
+window.addEventListener('scroll', () => {
+    anchorSections.forEach((section, i) => {
+        const sectionTopLimit = section.offsetTop - 100;
+        const sectionBottomLimit = section.offsetTop + section.clientHeight - 100;
 
-//     else if(window.pageYOffset >= idea.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorIdea.classList.add('anchor--active')
-//         currentActive = anchorIdea
-//     }
-
-//     else if(window.pageYOffset >= info.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorInfo.classList.add('anchor--active')
-//         currentActive = anchorInfo
-//     }
-
-//     else if(window.pageYOffset >= quote.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorQuote.classList.add('anchor--active')
-//         currentActive = anchorQuote
-//     }
-
-//     else if(window.pageYOffset >= pricing.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorPricing.classList.add('anchor--active')
-//         currentActive = anchorPricing
-//     }
-
-//     else if(window.pageYOffset >= cards.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorCards.classList.add('anchor--active')
-//         currentActive = anchorCards
-//     }
-
-//     else if(window.pageYOffset >= hero.offsetTop) {
-//         currentActive.classList.remove('anchor--active')
-//         anchorHero.classList.add('anchor--active')
-//         currentActive = anchorHero
-//     }
-// })
+        if(window.pageYOffset >= sectionTopLimit && window.pageYOffset <= sectionBottomLimit) {
+            currentActive.classList.remove('anchor--active')
+            anchor.children[i].classList.add('anchor--active')
+            currentActive = anchor.children[i]
+        }
+    })
+})
