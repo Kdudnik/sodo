@@ -57,19 +57,20 @@ const menuCloser = document.querySelector('#menuCloser')
 menuOpener.addEventListener('click', () => {
     menuOpener.classList.add('is-hidden')
     menuCloser.classList.remove('is-hidden')
-    navbarDrop.classList.remove('is-hidden')
+    navbarDrop.classList.remove('drop-up')
     navbar.classList.add('js-sticky')
-    navbarDrop.classList.add('drop')
+    navbarDrop.classList.add('drop-down')
+    navbar.style.backgroundColor = 'var(--theme-white)'
 })
 
 menuCloser.addEventListener('click', () => {
     menuCloser.classList.add('is-hidden')
     menuOpener.classList.remove('is-hidden')
-    navbarDrop.classList.add('is-hidden')
+    navbarDrop.classList.add('drop-up')
     navbar.classList.remove('js-sticky')
-    navbarDrop.classList.remove('drop')
+    navbarDrop.classList.remove('drop-down')
+    navbar.style.backgroundColor = 'var(--theme-gray-lightest)'
 })
-
 
 // Anchor
 
